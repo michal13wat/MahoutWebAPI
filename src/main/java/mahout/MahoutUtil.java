@@ -68,7 +68,7 @@ public class MahoutUtil {
                 Recommender itemRecommender = new GenericItemBasedRecommender(model,itemSimilarity);
                 
                 // TODO - jak będzie działało, to zmienić liczbę rekomendacji na np. 5
-                List<RecommendedItem> itemRecommendations = itemRecommender.recommend(3, 5);
+                List<RecommendedItem> itemRecommendations = itemRecommender.recommend(id_user, 5);
                 for (RecommendedItem itemRecommendation : itemRecommendations) {
                     System.out.println("ID recommended product = " 
                             + toIntExact(itemRecommendation.getItemID()));
