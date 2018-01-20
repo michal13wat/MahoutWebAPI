@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    </head>
+    <body>
+        <div id="main"></div>
+	<script>
+        function displayRating(){
+            var divRating = $('<div>').attr('class', 'tabs').appendTo('#main');
+            var nag = $('<h2>').css('color', '#2fb5d2').text("Oceń produkt").appendTo(divRating);
+            $('</br>').appendTo(divRating);
+            var productName = '"' + "kokoko dsa wqe" + '"';
+                console.log(productName);
+                var client = "pol qwe";
+                console.log(client);
+            if(client){
+                        var clientSplit = client.split(" ");
+                        console.log(clientSplit);
+                var fn = clientSplit[0];
+                var ln = clientSplit[1];
+            }
+            else{
+                var fn = "";
+                var ln = "";
+            }
+            $('<span>').text(" | ").appendTo(divRating);
+            for(var i = 1; i <=10; i++){
+              var adr = "resources/recommandations/rate?name=" + productName;
+              if(ln != "" && fn != "")
+                adr = adr + "&fn=" + fn + "&ln=" + ln;
+              adr = adr + "&rate=";
+            $('<a>').attr('href', adr + i).text(i).appendTo(divRating);
+            $('<span>').text(" | ").appendTo(divRating);
+            }
+        }
+	    
+  function loadRecomends() {
+    var divMain = $('<div>').attr('class', 'tabs').css('overflow','hidden').
+    appendTo('#main');
+    var nag = $('<h2>').css('color', '#2fb5d2').text("Polecamy również").appendTo(divMain);
+    $('</br>').appendTo(divMain);
+    
+    var products;
+    $.getJSON('resources/recommandations/customer?fn=asdf&ln=asdf', function(products){
+	$.each(products, function(i, product) {
+	    var a = $('<a>').attr('href', encodeURI(product.link)).appendTo(divMain);
+
+	    var div = $('<div>').css('width', '190px').hover(aInHover,aOutHover).
+	    css('height', '300px').css('margin','5px').css('color', 'black').
+	    css('float','left').appendTo(a);
+
+	    var img = $('<img>').attr('src', product.photo).attr('alt', product.name).
+	    css('width', '180px').css('display', 'block').css('height', '180px').
+	    css('margin', 'auto').appendTo(div);
+
+	    $('<p>').text(product.name).css('width','180px').css('text-align', 'center').
+	    css('font-size', '14px').appendTo(div);
+
+	    $('<p>').text(product.price).css('width', '180px').css('text-align', 'center').
+	    css('font-size', '14px').appendTo(div)
+	})
+    });
+  }
+  
+  function aInHover(){
+    $(this).css('background-color', '#F0F0FF')
+  	$(this).css('color', '#2fb5d2');
+  }
+  
+  function aOutHover(){
+    $(this).css('background-color', 'white')
+    $(this).css('color', 'black');
+  }
+  
+  $(document).ready(function () {
+      displayRating();
+  	loadRecomends();
+  });
+</script>
+    </body>
+</html>

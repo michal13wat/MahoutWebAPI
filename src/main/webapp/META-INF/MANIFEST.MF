@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: pl.gda.pg.eti.jg.resources.RecommandationResource
+
+
