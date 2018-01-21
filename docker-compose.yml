@@ -1,0 +1,44 @@
+version: '2'
+services: 
+  prestashop:
+    image: brzozaxd/be_projekt3
+    ports:
+      - "80:80"
+    restart: on-failure
+    links:
+      - mysql:mysql
+    depends_on:
+      - mysql
+    environment:
+      - PS_DEV_MODE=0
+      - DB_SERVER=mysql
+      - DB_USER=root
+      - DB_PASSWD=jGBmdM_16_17
+      - DB_NAME=prestashop
+      - PS_INSTALL_AUTO=0
+  mysql:
+    image: brzozaxd/be_mysql2
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=prestashop
+    ports:
+      - "3306:3306"
+    restart: on-failure
+    volumes:
+      - my-datavolume:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links:
+      - mysql
+    ports: 
+      - "81:80"
+    environment:
+      - PMA_HOST=mysql
+  mahoutapi:
+    image: brzozaxd/mahoutapi
+    links:
+      - mysql
+    ports: 
+      - "8084:8084"
+volumes:
+  my-datavolume:
