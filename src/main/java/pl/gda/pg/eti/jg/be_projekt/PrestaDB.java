@@ -198,11 +198,43 @@ public class PrestaDB {
                 + id_customer + ", " + id_product + ", " + grade + ")"; 
     }
     
-    public void saveRagingsInDB(int id_customer, int id_product, int grade){
+    private boolean ratingExists(Statement st, int id_customer, int id_product){
         
         try{
-            String query = makeQueryToSaveRatings(id_customer, id_product, grade); 
+            ResultSet rs = 
+            st.executeQuery("SELECT count(*) FROM ps_customer_rating WHERE FK_customer = "
+               + id_customer + " and FK_product = " + id_product);
+            rs.next();
+            int num = rs.getInt(1);
+            if(num > 0) return true;
+        }
+        catch (Exception e){
+          System.err.println("Got an exception! ");
+          System.err.println(e.getMessage());
+        }
+        
+                    
+        return false;
+    }
+    
+    private String makeQueryToUpdateRatings(int id_customer, int id_product, int grade){
+        return "UPDATE ps_customer_rating SET grade = " + grade + " WHERE FK_customer = " 
+                + id_customer + " and FK_product = " + id_product;
+    }
+    
+    public void saveRagingsInDB(int id_customer, int id_product, int grade){
+        // 1. chceck if such row exists in DB
+        // 2. if exists, then update, else insert
+        
+        
+        try{
             Statement st = conn.createStatement();
+            String query;
+            if(ratingExists(st, id_customer, id_product)){
+                query = makeQueryToUpdateRatings(id_customer, id_product, grade);
+            }else {
+                query = makeQueryToSaveRatings(id_customer, id_product, grade);
+            }
             st.execute(query);
             
             st.close();
