@@ -46,7 +46,7 @@ and open the template in the editor.
     var convertedLN = parseRequest(ln);
     
     for(var i = 1; i <=10; i++){
-      var adr = "http://localhost:8084/BE_Projekt/resources/recommandations/rate?name=" + convertedPN;
+      var adr = "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/rate?name=" + convertedPN;
       if(ln != "" && fn != "")
       	adr = adr + "&fn=" + convertedFN + "&ln=" + convertedLN;
       adr = adr + "&rate=";
@@ -74,7 +74,7 @@ and open the template in the editor.
     	var ln = "";
     }
     
-    var recommendationForClient = "http://localhost:8084/BE_Projekt/resources/recommandations/customer?fn="
+    var recommendationForClient = "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/customer?fn="
         + fn + "&ln=" + ln;
 
     var convertedRequest = parseRequest(recommendationForClient);
@@ -82,7 +82,7 @@ and open the template in the editor.
     $.ajax({
     	crossDomain: true,
     	type: "GET",
-//    	url: "http://localhost:8084/BE_Projekt/resources/recommandations/customer?fn=asdf&ln=asdf"
+//    	url: "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/customer?fn=asdf&ln=asdf"
         url: convertedRequest
 	}).done(function(products){
       $.each(products, function(i, product) {
