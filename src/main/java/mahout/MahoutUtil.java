@@ -59,7 +59,7 @@ public class MahoutUtil {
                 for(Ratings r : ratings)
                     writer.write(r.id_customer + "," + r.id_product + "," + String.format("%.1f", r.grade) + "\n");
              }catch(Exception e){
-                 e.printStackTrace();;
+                 e.printStackTrace();
              }
             
             try{
