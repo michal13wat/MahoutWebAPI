@@ -19,7 +19,7 @@ import static java.nio.charset.StandardCharsets.*;
  */
 public class PrestaDB {
     final String myDriver = "org.gjt.mm.mysql.Driver";
-    final String myUrl = "jdbc:mysql://localhost:3306/prestashop?characterEncoding=utf8";
+    final String myUrl = "jdbc:mysql://mysql:3306/prestashop?characterEncoding=utf8";
     String domainAddress;
     Connection conn = null;
     

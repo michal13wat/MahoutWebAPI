@@ -2,6 +2,7 @@ version: '2'
 services: 
   prestashop:
     image: brzozaxd/be_projekt3
+    container_name: prestashop
     ports:
       - "80:80"
     restart: on-failure
@@ -18,6 +19,7 @@ services:
       - PS_INSTALL_AUTO=0
   mysql:
     image: brzozaxd/be_mysql2
+    container_name: mysql
     environment:
       - MYSQL_ROOT_PASSWORD=admin
       - MYSQL_DATABASE=prestashop
@@ -28,6 +30,7 @@ services:
       - my-datavolume:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
     links:
       - mysql
     ports: 
@@ -36,6 +39,7 @@ services:
       - PMA_HOST=mysql
   mahoutapi:
     image: brzozaxd/mahoutapi
+    container_name: mahoutapi
     links:
       - mysql
     ports: 
