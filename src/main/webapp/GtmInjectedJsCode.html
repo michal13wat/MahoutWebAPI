@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 
 <script>
   function getClientName(){
@@ -46,7 +41,7 @@ and open the template in the editor.
     var convertedLN = parseRequest(ln);
     
     for(var i = 1; i <=10; i++){
-      var adr = "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/rate?name=" + convertedPN;
+      var adr = "http://localhost:8084/BE_Projekt/resources/recommandations/rate?name=" + convertedPN;
       if(ln != "" && fn != "")
       	adr = adr + "&fn=" + convertedFN + "&ln=" + convertedLN;
       adr = adr + "&rate=";
@@ -74,7 +69,7 @@ and open the template in the editor.
     	var ln = "";
     }
     
-    var recommendationForClient = "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/customer?fn="
+    var recommendationForClient = "http://localhost:8084/BE_Projekt/resources/recommandations/customer?fn="
         + fn + "&ln=" + ln;
 
     var convertedRequest = parseRequest(recommendationForClient);
@@ -82,7 +77,7 @@ and open the template in the editor.
     $.ajax({
     	crossDomain: true,
     	type: "GET",
-//    	url: "http://172.20.83.81:8084/BE_Projekt/resources/recommandations/customer?fn=asdf&ln=asdf"
+//    	url: "http://localhost:8084/BE_Projekt/resources/recommandations/customer?fn=asdf&ln=asdf"
         url: convertedRequest
 	}).done(function(products){
       $.each(products, function(i, product) {
@@ -141,63 +136,6 @@ and open the template in the editor.
     $(this).css('background-color', 'white')
     $(this).css('color', 'black');
   }
-  
-//  function randProd(){
-//  		var prod = [{name: 'BLACHA DACHÓWKOWA SZAFIR 2,2 PRUSZYŃSKI',
-//                  link: 'http://localhost/pokrycie-dachowe/772-blacha-dachowkowa-szafir-22-pruszynski.html',
-//                  photo: 'http://localhost/790-large_default/blacha-dachowkowa-szafir-22-pruszynski.jpg',
-//                    price: '107.63 zł'},
-//                {name: 'AKRYL DO PŁYT G-K 300 DEN BRAVEN', 
-//                 link: 'http://localhost/kleje-uszczelniajace-izolacje/637-akryl-do-plyt-g-k-300-den-braven.html',
-//                 photo: 'http://localhost/655-large_default/akryl-do-plyt-g-k-300-den-braven.jpg',
-//                    price: '12.24 zł'},
-//                {name: 'AKRYL EXTRA ZEWNĘTRZNY 300 DEN BRAVEN',
-//                 link: 'http://localhost/kleje-uszczelniajace-izolacje/556-akryl-extra-zewnetrzny-300-den-braven.html',
-//                 photo: 'http://localhost/574-large_default/akryl-extra-zewnetrzny-300-den-braven.jpg',
-//                    price: '12.24 zł'},
-//                {name: 'DACHÓWKA BITUMICZNA ROLOWANA DZIAŁKOWIEC KARPIÓWKA 3D 11 ICOPAL',
-//                 link: 'http://localhost/pokrycie-dachowe/752-dachowka-bitumiczna-rolowana-dzialkowiec-karpiowka-3d-11-icopal.html',
-//                 photo: 'http://localhost/770-large_default/dachowka-bitumiczna-rolowana-dzialkowiec-karpiowka-3d-11-icopal.jpg',
-//                    price: '216.70 zł'},
-//                {name: 'FARBA NA DACH CYNKOBOND DEN BRAVEN',
-//                 link: 'http://localhost/farby-i-uszczelniacze-dachowe/1107-farba-na-dach-cynkobond-den-braven.html',
-//                 photo: 'http://localhost/1125-large_default/farba-na-dach-cynkobond-den-braven.jpg',
-//                    price: '244.77 zł'},
-//                {name: 'ŁĄCZNIK RYNNOWY ZEWNĘTRZNY G 80 SCALA PLASTICS',
-//                 link: 'http://localhost/odprowadzanie-wody-deszczowej/1040-lacznik-rynnowy-zewnetrzny-g-80-scala-plastics.html',
-//                 photo: 'http://localhost/1058-large_default/lacznik-rynnowy-zewnetrzny-g-80-scala-plastics.jpg',
-//                    price: '21.87 zł'},
-//                {name: 'ZŁĄCZKA RYNNY G 125 SCALA PLASTICS',
-//                 link: 'http://localhost/odprowadzanie-wody-deszczowej/927-zlaczka-rynny-g-125-scala-plastics.html',
-//                 photo: 'http://localhost/945-large_default/zlaczka-rynny-g-125-scala-plastics.jpg',
-//                    price: '20.91 zł'},
-//                {name: 'EMULSJA GRUNTUJĄCA DL - 80 BUTELKA CEKOL',
-//                 link: 'http://localhost/grunty-i-inpregnaty/298-emulsja-gruntujaca-dl-80-butelka-cekol.html',
-//                 photo: 'http://localhost/316-large_default/emulsja-gruntujaca-dl-80-butelka-cekol.jpg',
-//                    price: '15.53 zł'},
-//                {name: 'FARBA GRUNTUJĄCA EKOGRUNT KANISTER BETONDUR',
-//                 link: 'http://localhost/grunty-i-inpregnaty/284-farba-gruntujaca-ekogrunt-kanister-betondur.html',
-//                 photo: 'http://localhost/302-large_default/farba-gruntujaca-ekogrunt-kanister-betondur.jpg',
-//                    price: '24.45 zł'},
-//                {name: 'GRUNT BETONKONTAKT NR 15 7,5 KG ARTISAN', 
-//                 link: 'http://localhost/grunty-i-inpregnaty/316-grunt-betonkontakt-nr-15-75-kg-artisan.html',
-//                 photo: 'http://localhost/334-large_default/grunt-betonkontakt-nr-15-75-kg-artisan.jpg',
-//                 price: '41.81 zł'}]
-//        
-//    	var index = [];
-//    	for(var i = 0; index.length < 5; i++){
-//        	var tmp = Math.floor(Math.random() * prod.length);
-//          console.log(prod[tmp].name == $('.h1').text());
-//          console.log(prod[tmp].name + " " + $('.h1').text());
-//          	if(!index.includes(tmp))
-//              index.push(tmp);
-//        }
-//    	var result = [];
-//    	for(var i = 0; i < index.length; i++)
-//          result.push(prod[index[i]]);
-//    	console.log(result);
-//    	return result;
-//  }
   
   $(document).ready(function () {
         displayRating();

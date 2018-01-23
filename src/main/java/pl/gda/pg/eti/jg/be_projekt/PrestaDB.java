@@ -226,7 +226,6 @@ public class PrestaDB {
         // 1. chceck if such row exists in DB
         // 2. if exists, then update, else insert
         
-        
         try{
             Statement st = conn.createStatement();
             String query;

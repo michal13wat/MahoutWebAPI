@@ -1,4 +1,4 @@
-/* Backup for 172.20.83.81/
+/* Backup for localhost/
  *  at 1516568219
  */
 
@@ -3962,8 +3962,8 @@ INSERT INTO `ps_configuration` VALUES
 ('226',NULL,NULL,'HOMESLIDER_PAUSE','7700','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 ('227',NULL,NULL,'HOMESLIDER_LOOP','1','0000-00-00 00:00:00','0000-00-00 00:00:00'),
 ('228',NULL,NULL,'PS_BASE_DISTANCE_UNIT','m','0000-00-00 00:00:00','0000-00-00 00:00:00'),
-('229',NULL,NULL,'PS_SHOP_DOMAIN','172.20.83.81','0000-00-00 00:00:00','2017-11-25 19:18:20'),
-('230',NULL,NULL,'PS_SHOP_DOMAIN_SSL','172.20.83.81','0000-00-00 00:00:00','2017-11-25 19:18:20'),
+('229',NULL,NULL,'PS_SHOP_DOMAIN','localhost','0000-00-00 00:00:00','2017-11-25 19:18:20'),
+('230',NULL,NULL,'PS_SHOP_DOMAIN_SSL','localhost','0000-00-00 00:00:00','2017-11-25 19:18:20'),
 ('231',NULL,NULL,'PS_SHOP_NAME','Ciegiełka','0000-00-00 00:00:00','2017-10-10 18:13:17'),
 ('232',NULL,NULL,'PS_SHOP_EMAIL','jkowalski.cegielka@gmail.com','0000-00-00 00:00:00','2017-10-21 16:57:10'),
 ('233',NULL,NULL,'PS_MAIL_METHOD','2','0000-00-00 00:00:00','2017-10-21 17:17:32'),
@@ -5800,9 +5800,9 @@ CREATE TABLE `ps_homeslider_slides_lang` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_homeslider_slides_lang` VALUES
-('1','1','Nowa gama produtków!','<h2 style=\"text-align:center;\">A w niej... </h2>\n<p style=\"text-align:center;\">Beton komórkowy HH, cegła klinkierowa E3, emulcja granulująca DL 80!</p>\n<p style=\"text-align:center;\">Kliknij i sprawdź!</p>','Nowa gama produtków!','http://172.20.83.81/23-materialy-budowlane','24e830c058ce5568b6ef8d62de7fe9febe98dad4_test.png'),
-('2','1','Na zimę polecamy...','<h2>Materiały ociepleniowe</h2>\n<p>Teraz w naszej ofercie wełna szklana (pro-mata) 34, styropian o grubości 15cm i pianki uszczelnijące do montażu tego wszystkiego :p</p>','Na zimę polecamy...','http://172.20.83.81/24-izolacja-budynkow','2407d0f02405dd2d16a164a6ad3b0f6c70028cbd_banner2.png'),
-('3','1','Dachy i akcesoria','<h2>Bo solidny dach...</h2>\n<h2>to dach nieprzeciekający!</h2>\n<p>Sprawdź naszą ofertę pokryć dachowych!</p>','Dachy i akcesoria','http://172.20.83.81/25-dachy-i-akcesoria','b58a7ed0928d81d97a66e47313c6fab07489b51a_banner3.png');
+('1','1','Nowa gama produtków!','<h2 style=\"text-align:center;\">A w niej... </h2>\n<p style=\"text-align:center;\">Beton komórkowy HH, cegła klinkierowa E3, emulcja granulująca DL 80!</p>\n<p style=\"text-align:center;\">Kliknij i sprawdź!</p>','Nowa gama produtków!','http://localhost/23-materialy-budowlane','24e830c058ce5568b6ef8d62de7fe9febe98dad4_test.png'),
+('2','1','Na zimę polecamy...','<h2>Materiały ociepleniowe</h2>\n<p>Teraz w naszej ofercie wełna szklana (pro-mata) 34, styropian o grubości 15cm i pianki uszczelnijące do montażu tego wszystkiego :p</p>','Na zimę polecamy...','http://localhost/24-izolacja-budynkow','2407d0f02405dd2d16a164a6ad3b0f6c70028cbd_banner2.png'),
+('3','1','Dachy i akcesoria','<h2>Bo solidny dach...</h2>\n<h2>to dach nieprzeciekający!</h2>\n<p>Sprawdź naszą ofertę pokryć dachowych!</p>','Dachy i akcesoria','http://localhost/25-dachy-i-akcesoria','b58a7ed0928d81d97a66e47313c6fab07489b51a_banner3.png');
 /* Scheme for table ps_hook */
 DROP TABLE IF EXISTS `ps_hook`;
 CREATE TABLE `ps_hook` (
@@ -28095,7 +28095,7 @@ CREATE TABLE `ps_shop_url` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 INSERT INTO `ps_shop_url` VALUES
-('1','1','172.20.83.81','172.20.83.81','/','','1','1');
+('1','1','localhost','localhost','/','','1','1');
 /* Scheme for table ps_smarty_cache */
 DROP TABLE IF EXISTS `ps_smarty_cache`;
 CREATE TABLE `ps_smarty_cache` (

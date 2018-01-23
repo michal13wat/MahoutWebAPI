@@ -13,7 +13,6 @@ import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-//import javax.faces.model.DataModel;
 import org.apache.mahout.cf.taste.common.TasteException;
 import org.apache.mahout.cf.taste.impl.model.file.FileDataModel;
 import org.apache.mahout.cf.taste.impl.neighborhood.ThresholdUserNeighborhood;
@@ -42,17 +41,6 @@ public class MahoutUtil {
             String filePath = System.getProperty("user.home") + "/" + TEMP_FILE_NAME;
             
             List<Integer> idRecommendedProducts = new ArrayList<>();
-//            idRecommendedProducts.add(12);
-//            idRecommendedProducts.add(13);
-//            if(id_user == 4){
-//                idRecommendedProducts.add(14);
-//                idRecommendedProducts.add(15);
-//                idRecommendedProducts.add(16);
-//                idRecommendedProducts.add(17);
-//                idRecommendedProducts.add(18);
-//                idRecommendedProducts.add(19);
-//                idRecommendedProducts.add(20);
-//            }
             
             try (Writer writer = new BufferedWriter(new OutputStreamWriter(
               new FileOutputStream(filePath), "utf-8"))) {
@@ -67,7 +55,6 @@ public class MahoutUtil {
                 ItemSimilarity itemSimilarity = new EuclideanDistanceSimilarity (model);
                 Recommender itemRecommender = new GenericItemBasedRecommender(model,itemSimilarity);
                 
-                // TODO - jak będzie działało, to zmienić liczbę rekomendacji na np. 5
                 List<RecommendedItem> itemRecommendations = itemRecommender.recommend(id_user, 5);
                 for (RecommendedItem itemRecommendation : itemRecommendations) {
                     System.out.println("ID recommended product = " 
